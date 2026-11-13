@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STRAT 402 Midterm 2 Flashcards</title>
+<style>
+:root{--ink:#172536;--muted:#607184;--blue:#245b8f;--pale:#eef4fa;--line:#d6e0e9;--white:#fff;--green:#26745b}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:960px;margin:auto;padding:28px 20px 48px}h1{margin:0;font-size:clamp(1.7rem,4vw,2.4rem)}.sub{color:var(--muted);margin:.3rem 0 1.2rem}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}.toolbar select,.toolbar input,.toolbar button,.control button{font:inherit;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink);padding:9px 12px}.toolbar input{flex:1;min-width:190px}.toolbar button,.control button{cursor:pointer}.toolbar button:hover,.control button:hover{border-color:var(--blue);color:var(--blue)}
+.progress{display:flex;justify-content:space-between;color:var(--muted);font-size:.92rem;margin:10px 2px}.card{min-height:320px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 12px 32px #1b385511;display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vw,52px);cursor:pointer;transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-2px);box-shadow:0 16px 40px #1b38551b}.tag{align-self:flex-start;background:var(--pale);color:var(--blue);font-size:.82rem;font-weight:700;padding:4px 10px;border-radius:99px}.term{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:750;margin:18px 0 8px}.answer{font-size:1.12rem;max-width:700px}.hint{color:var(--muted);font-size:.9rem;margin-top:28px}.control{display:flex;justify-content:center;gap:12px;margin:16px 0}.control button{min-width:110px}.know{background:#edf7f3!important;color:var(--green)!important}.sources{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.9rem}.sources a{color:var(--blue)}.empty{padding:70px;text-align:center;color:var(--muted)}
+@media(max-width:560px){main{padding:20px 14px}.card{min-height:280px}.control button{flex:1}}
+</style>
+</head>
+<body><main>
+<h1>STRAT 402 Midterm 2 Flashcards</h1>
+<p class="sub">Sessions 15–22 · Production, barriers to entry, game theory, and oligopoly. Click a card to reveal its definition. Use ← / → to move and Space to flip.</p>
+<div class="toolbar"><select id="topic" aria-label="Filter by topic"><option value="all">All topics</option></select><input id="search" type="search" placeholder="Search terms…" aria-label="Search terms"><button id="shuffle">Shuffle</button><button id="reset">Reset mastered</button></div>
+<div class="progress"><span id="count"></span><span id="mastered"></span></div>
+<section id="card" class="card" tabindex="0" role="button" aria-label="Flashcard. Press Enter or Space to flip"></section>
+<div class="control"><button id="prev">← Previous</button><button id="flip">Flip</button><button id="next">Next →</button><button id="know" class="know">✓ Got it</button></div>
+<p class="hint" style="text-align:center">Tip: Mark a card “Got it” to track your progress during this session.</p>
+<div class="sources"><strong>Slide sources:</strong>
+<a href="https://byu.instructure.com/courses/39028/modules/items/3313640">Session 15 Production I</a> ·
+<a href="https://byu.instructure.com/courses/39028/modules/items/3318861">Session 16 Production II</a> ·
+<a href="https://byu.instructure.com/courses/39028/modules/items/3321107">Session 18 Barriers to Entry</a> ·
+<a href="https://byu.instructure.com/courses/39028/modules/items/3324748">Session 19 Game Theory I</a> ·
+<a href="https://byu.instructure.com/courses/39028/modules/items/3326309">Session 20 Game Theory II</a> ·
+<a href="https://byu.instructure.com/courses/39028/modules/420397">Session 21 module</a> ·
+<a href="https://byu.instructure.com/courses/39028/modules/420398">Session 22 module</a>.
+The visible modules did not list a separate slide attachment for Sessions 21–22; their cards cover terms included in the official Midterm 2 objectives.
+</div>
+</main>
+<script>
+const cards=[
+['Production','Production function','A relationship showing the maximum output obtainable from given inputs and technology; commonly written Q = f(K, L).'],
+['Production','Total product (TP)','The maximum output produced with a given amount of inputs.'],
+['Production','Average product (AP)','Output per unit of an input. For labor, AP_L = Q/L.'],
+['Production','Marginal product (MP)','The change in total output caused by using one additional unit of an input; for labor, MP_L = ΔQ/ΔL (or the derivative).'],
+['Production','Increasing marginal returns','A range where each additional unit of an input adds more output than the previous unit; marginal product rises.'],
+['Production','Diminishing marginal returns','A range where each additional unit of an input adds less output than the previous unit; marginal product falls but may remain positive.'],
+['Production','Negative marginal returns','A range where an additional unit of an input reduces total output; marginal product is below zero.'],
+['Production','Value of marginal product (VMP)','The marginal product of an input multiplied by output price. For labor, VMP_L = P × MP_L.'],
+['Production','Profit-maximizing input rule','Hire/use an input until its value of marginal product equals its input price. For labor: P × MP_L = wage (w).'],
+['Production','Linear production function','A production technology with perfect substitutes between inputs, such as Q = aK + bL; its isoquants are straight lines.'],
+['Production','Cobb–Douglas production function','A production technology commonly written Q = A K^a L^b. Inputs are imperfect substitutes and isoquants are convex.'],
+['Production','Leontief (fixed-proportions) production function','A technology such as Q = min(aK, bL), where inputs must be combined in fixed proportions; isoquants are L-shaped.'],
+['Production','Isoquant','A curve showing combinations of inputs that produce the same output level.'],
+['Production','Marginal rate of technical substitution (MRTS)','The rate at which one input can be exchanged for another while holding output constant; its magnitude is MP_L/MP_K and it relates to the isoquant slope.'],
+['Production','Law of diminishing MRTS','As a firm substitutes one input for another along a typical convex isoquant, progressively more of the replacing input is needed to maintain the same output.'],
+['Production','Isocost line','Combinations of inputs that cost the same total amount. With labor L, capital K, wage w, rental rate r, and budget C: C = wL + rK.'],
+['Production','Cost-minimizing input rule','For an interior solution, choose inputs so MRTS equals the input-price ratio: MP_L/MP_K = w/r. Equivalently, equalize marginal product per dollar: MP_L/w = MP_K/r.'],
+['Barriers to entry','Barrier to entry','A condition that makes entry harder, slower, or less profitable for potential competitors, helping an incumbent preserve returns.'],
+['Barriers to entry','Structural barrier','An entry obstacle arising from industry conditions, such as scale economies, control of a scarce input, network effects, or customer switching costs.'],
+['Barriers to entry','Strategic barrier','An incumbent action that changes the payoff or cost of entering, such as credible capacity, product positioning, or investment that deters entry.'],
+['Barriers to entry','Regulatory barrier','An obstacle created by law or government policy, such as licensing, patents, or exclusive rights.'],
+['Barriers to entry','Sunk cost','An investment that cannot be recovered if a firm exits. High sunk costs can discourage potential entrants.'],
+['Game Theory','Player','A decision maker in a strategic interaction.'],
+['Game Theory','Strategy','A complete plan of action for a player in a game.'],
+['Game Theory','Payoff','The outcome or value a player receives from a particular combination of strategies.'],
+['Game Theory','Normal-form game','A representation of a simultaneous-move game listing players, available strategies, and payoffs for every strategy combination.'],
+['Game Theory','Best response','A strategy that gives a player the highest payoff given the other players’ chosen strategies.'],
+['Game Theory','Dominant strategy','A strategy that gives a player a higher payoff than its alternatives for every possible action by the opponent.'],
+['Game Theory','Dominated strategy','A strategy that yields a lower payoff than another strategy for every action the opponent could take.'],
+['Game Theory','Nash equilibrium','A set of strategies where no player can improve their payoff by changing strategy alone, given the other players’ strategies.'],
+['Game Theory','Prisoner’s dilemma','A game in which individually rational choices lead to an outcome that is worse for players collectively than another feasible outcome.'],
+['Game Theory','Mixed (randomized) strategy','A strategy that assigns probabilities to two or more actions, making a player’s behavior less predictable.'],
+['Game Theory','Sequential game','A game in which players move in a specified order and later players can observe earlier moves.'],
+['Game Theory','Backward induction','A way to solve a sequential game by starting at the final decision and working backward to determine optimal earlier choices.'],
+['Game Theory','Repeated game','A strategic interaction played more than once, allowing current actions to affect future responses and payoffs.'],
+['Game Theory','Trigger strategy','A strategy that cooperates while others cooperate, then switches to punishment after a deviation.'],
+['Game Theory','Present value','The value today of future payoffs discounted to account for the time value of money. Compare the discounted value of cooperation with the immediate gain from deviating.'],
+['Oligopoly','Oligopoly','A market dominated by a small number of firms whose decisions affect one another.'],
+['Oligopoly','Cournot competition','Firms choose quantities simultaneously; each firm’s profit depends on its own quantity and rivals’ quantities.'],
+['Oligopoly','Reaction function','A function describing a firm’s profit-maximizing choice as a response to competitors’ choices. In Cournot it maps rival quantities to the firm’s optimal quantity.'],
+['Oligopoly','Cournot equilibrium','The set of quantities where each firm is choosing its best response to the other firms’ quantities.'],
+['Oligopoly','Collusion','Coordination among competitors to raise joint profits, often by restricting output or setting higher prices.'],
+['Oligopoly','Stackelberg competition','A sequential quantity game where a leader chooses output first and a follower responds. The leader accounts for the follower’s reaction.'],
+['Oligopoly','Bertrand competition','Firms choose prices. With identical products and equal constant marginal costs, price competition can push price toward marginal cost.'],
+['Oligopoly','Differentiated Bertrand competition','Firms set prices for differentiated products; each firm’s best price depends on rivals’ prices because products are substitutes but not identical.'],
+['Oligopoly','Strategic substitute','A choice where an increase in a rival’s action reduces the firm’s best-response action; Cournot quantities are typically strategic substitutes.'],
+['Oligopoly','Strategic complement','A choice where an increase in a rival’s action raises the firm’s best-response action; differentiated-product prices are often strategic complements.']
+];
+const topic=document.querySelector('#topic'), search=document.querySelector('#search'), card=document.querySelector('#card');let deck=[...cards], index=0, flipped=false;const mastered=new Set();
+[...new Set(cards.map(c=>c[0]))].forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;topic.append(o)});
+function render(){if(!deck.length){card.innerHTML='<div class="empty">No cards match. Try another topic or search.</div>';document.querySelector('#count').textContent='0 cards';return}index=(index+deck.length)%deck.length;let c=deck[index];card.innerHTML=`<span class="tag">${c[0]}</span><div class="term">${flipped?'Answer':c[1]}</div><div class="answer">${flipped?c[2]:'Think of the definition, then flip the card.'}</div><div class="hint">${flipped?'Click or press Space to see the term':'Click or press Space to reveal the definition'}</div>`;document.querySelector('#count').textContent=`Card ${index+1} of ${deck.length}`;document.querySelector('#mastered').textContent=`${mastered.size} marked got it`}
+function filter(){const q=search.value.trim().toLowerCase(),t=topic.value;deck=cards.filter(c=>(t==='all'||c[0]===t)&&(!q||c.join(' ').toLowerCase().includes(q)));index=0;flipped=false;render()}
+function flip(){if(!deck.length)return;flipped=!flipped;render()}function move(d){if(!deck.length)return;index=(index+d+deck.length)%deck.length;flipped=false;render()}
+card.addEventListener('click',flip);card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();flip()}});document.querySelector('#flip').onclick=flip;document.querySelector('#prev').onclick=()=>move(-1);document.querySelector('#next').onclick=()=>move(1);document.querySelector('#know').onclick=()=>{if(deck.length){mastered.add(deck[index][1]);move(1)}};topic.onchange=filter;search.oninput=filter;document.querySelector('#shuffle').onclick=()=>{for(let i=deck.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]]}index=0;flipped=false;render()};document.querySelector('#reset').onclick=()=>{mastered.clear();render()};document.addEventListener('keydown',e=>{if(e.target.matches('input,select'))return;if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1);if(e.key===' '){e.preventDefault();flip()}});render();
+</script></body></html>
